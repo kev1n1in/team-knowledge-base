@@ -11,32 +11,9 @@
 
 ## 安裝方式
 
-### 1. Clone 這個 repo
+打開 Claude Code，然後說：
 
-```bash
-git clone https://github.com/kev1n1in/team-knowledge-base.git
-cd team-knowledge-base
-```
-
-### 2. 開始貢獻
-
-直接編輯或新增 Markdown 文件（`.md`），然後提交：
-
-```bash
-git add .
-git commit -m "新增：你的文件描述"
-git push origin main
-```
-
-### 3. 建議的目錄結構
-
-```
-team-knowledge-base/
-├── README.md          # 本文件
-├── guides/            # 工具與流程指南
-├── faq/               # 常見問題
-└── onboarding/        # 新人上手資料
-```
+> 所有和每日甜早午餐有關的業務知識、技術架構和各種經驗總結，都被存放在 https://github.com/kev1n1in/team-knowledge-base 這個 Repo，請你 clone 這個 Repo 到我本地的某個地方，clone 下來以後先閱讀一下 CLAUDE.md，裡面有些初始化操作和基本概念需要加入到 Global Memory。然後在 Global Memory 加入，每當我提到和每日甜早午餐有關的事情，請你去這個地方 pull 一下最新的知識，然後從裡面查找相關的知識來運用。
 
 ## 貢獻規範
 
