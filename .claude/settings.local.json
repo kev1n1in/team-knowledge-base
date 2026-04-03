@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth:*)",
+      "Bash(git config:*)",
+      "Bash(echo $GITHUB_TOKEN)",
+      "Bash(printenv)",
+      "Bash(brew install:*)",
+      "Bash(git init:*)",
+      "Bash(gh repo:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Read(//Users/kevinlin/.claude/**)",
+      "Read(//Users/kevinlin/Library/Application Support/Claude/**)",
+      "Bash(npm install:*)",
+      "Bash(/usr/local/bin/npm install:*)",
+      "Read(//usr/local/bin/**)",
+      "Read(//Users/kevinlin/.nvm/versions/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(/usr/local/bin/node --version)",
+      "Read(//usr/local/lib/node_modules/npm/bin/**)",
+      "Bash(/usr/local/bin/node /usr/local/bin/npm install)",
+      "Bash(PATH=/usr/local/bin:$PATH /usr/local/bin/node /usr/local/bin/npm install)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(xargs kill:*)"
+    ]
+  }
+}

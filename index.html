@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>非軟體工程師的 AI 世代指南</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Slide 1: 封面 -->
+<div class="slide active" id="slide-1">
+  <canvas id="fluid-canvas"></canvas>
+  <div class="slide-content cover-content">
+    <h1 class="cover-title">非軟體工程師的<br>AI 世代指南</h1>
+    <p class="cover-sub">AAMA 內部分享會 · 2026</p>
+    <p class="cover-hint">按 → 開始</p>
+  </div>
+</div>
+
+<!-- Slide 2: 你真的有必要使用 AI 工具嗎？ -->
+<div class="slide" id="slide-2">
+  <div class="slide-content">
+    <h2 class="slide-question">你真的有必要<br>使用 AI 工具嗎？</h2>
+    <div class="slide-body">
+      <p class="big-text">市面上九成的 AI 課程在賣什麼？</p>
+      <ul class="point-list">
+        <li>「再不學 AI 你就落伍了！」</li>
+        <li>「AI 要取代你的工作了！」</li>
+        <li>教你開 ChatGPT、問它今天吃什麼</li>
+      </ul>
+      <div class="callout">
+        <p>我沒有收你們的錢。</p>
+        <p>所以我不需要嚇你。</p>
+        <p>今天只有一件事：<strong>AI 怎麼真的幫到你。</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3: 什麼是 Agentic AI -->
+<div class="slide" id="slide-3">
+  <div class="slide-content">
+    <h2>什麼是 Agentic AI？</h2>
+    <div class="slide-body">
+      <p class="big-text">AI 從「回答問題」進化到「自己做事」</p>
+      <div class="compare-grid">
+        <div class="compare-box old">
+          <div class="compare-label">過去的 AI</div>
+          <p>你問 → 它答</p>
+          <p>每一步都要你決定</p>
+          <p>像查 Google</p>
+        </div>
+        <div class="compare-arrow">→</div>
+        <div class="compare-box new">
+          <div class="compare-label">Agentic AI</div>
+          <p>你說目標 → 它自己規劃執行</p>
+          <p>像給你一個能自主工作的助理</p>
+          <p>不只回答，還會動手做</p>
+        </div>
+      </div>
+      <p class="note">Claude Code、Cursor、Copilot 本質上都是 Agentic AI</p>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 4: 四步切入架構 -->
+<div class="slide" id="slide-5">
+  <div class="slide-content">
+    <h2>企業導入 AI 的四個切入點</h2>
+    <div class="four-steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">日常工作 AI 化</div>
+        <div class="step-desc">用 AI 做你每天都在做的事</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">賦能非技術人員</div>
+        <div class="step-desc">不需工程師，自己做工具</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">知識基礎設施</div>
+        <div class="step-desc">讓知識不再鎖在人腦裡</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">實戰案例</div>
+        <div class="step-desc">行銷人員的 YouTube 數據自動化</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 6: Step 1 日常 AI 化 -->
+<div class="slide" id="slide-6">
+  <div class="slide-content">
+    <div class="step-badge">Step 01</div>
+    <h2>日常工作 AI 化</h2>
+    <div class="slide-body">
+      <p class="big-text">最快的起點：把你每天重複做的事交給 AI</p>
+      <div class="example-row">
+        <div class="example-card">
+          <div class="example-icon">📊</div>
+          <div class="example-title">這個簡報</div>
+          <div class="example-desc">用 Claude Code 直接生成互動網頁簡報，不用 PowerPoint，不用 Gamma</div>
+        </div>
+        <div class="example-card">
+          <div class="example-icon">📱</div>
+          <div class="example-title">社群貼文素材</div>
+          <div class="example-desc">比 AI 生圖更快、更準，成本更低</div>
+        </div>
+        <div class="example-card">
+          <div class="example-icon">🔁</div>
+          <div class="example-title">重複性文書</div>
+          <div class="example-desc">報告、會議記錄、Email 草稿，讓 AI 先跑一版</div>
+        </div>
+      </div>
+      <p class="note">原則：先找出你每週花超過 2 小時的重複任務</p>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 7: Step 2 賦能非技術人員 -->
+<div class="slide" id="slide-7">
+  <div class="slide-content">
+    <div class="step-badge">Step 02</div>
+    <h2>賦能非技術人員</h2>
+    <div class="slide-body">
+      <p class="big-text">你不需要工程師，也能做出工具</p>
+      <div class="case-list">
+        <div class="case-item">
+          <div class="case-role">PM</div>
+          <div class="case-detail">獨立完成數據可視化 Admin Dashboard，不需工程師介入</div>
+        </div>
+        <div class="case-item">
+          <div class="case-role">PM</div>
+          <div class="case-detail">開發 Discord Bot，自動整理營收總結和專案進度</div>
+        </div>
+        <div class="case-item">
+          <div class="case-role">公關公司</div>
+          <div class="case-detail">無工程師團隊，自建完整 CRM 和專案管理系統</div>
+        </div>
+        <div class="case-item">
+          <div class="case-role">製造業</div>
+          <div class="case-detail">建立涵蓋學習、知識、施工、CRM、報價的一站式管理平台</div>
+        </div>
+      </div>
+      <div class="callout">
+        解放被工程資源卡住的生產力——這是 AI 導入最大的槓桿。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 8: Step 3 知識基礎設施 -->
+<div class="slide" id="slide-8">
+  <div class="slide-content">
+    <div class="step-badge">Step 03</div>
+    <h2>建立 AI 知識基礎設施</h2>
+    <div class="slide-body">
+      <p class="big-text">知識不應該只活在某個人的腦子裡</p>
+      <div class="flow-diagram">
+        <div class="flow-step">遇到問題</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">AI 查知識庫</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">有記錄 → 直接回覆<br>沒記錄 → 人處理後<strong>寫回手冊</strong></div>
+      </div>
+      <div class="health-grid">
+        <div class="health-item">
+          <div class="health-pct">20%</div>
+          <div class="health-label">覆蓋率</div>
+        </div>
+        <div class="health-item">
+          <div class="health-pct">30%</div>
+          <div class="health-label">新鮮度</div>
+        </div>
+        <div class="health-item">
+          <div class="health-pct">25%</div>
+          <div class="health-label">結構品質</div>
+        </div>
+        <div class="health-item">
+          <div class="health-pct">25%</div>
+          <div class="health-label">連結完整性</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 9: Step 4 實戰 -->
+<div class="slide" id="slide-9">
+  <div class="slide-content">
+    <div class="step-badge">Step 04 · 實戰</div>
+    <h2>YouTube 數據自動化儀表板</h2>
+    <div class="slide-body">
+      <div class="demo-layout">
+        <div class="demo-problem">
+          <div class="demo-label problem">❌ 問題</div>
+          <p>行銷人員每天手動登入 YouTube Studio，複製數據到 Excel，耗時又容易出錯</p>
+        </div>
+        <div class="demo-solution">
+          <div class="demo-label solution">✅ 解決</div>
+          <p>用 Claude Code 建出自動化工具，一鍵抓取 YouTube 數據，自動更新 Excel，並產生可視化儀表板</p>
+        </div>
+        <div class="demo-result">
+          <div class="demo-label result">🚀 成果</div>
+          <p>從每天 30 分鐘手動作業，變成一鍵完成。數據即時、準確、可分享。</p>
+        </div>
+      </div>
+      <p class="note">Demo 截圖 / 實作過程 — 待補充</p>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 10: 哈利波特報紙互動頁 -->
+<div class="slide" id="slide-10">
+  <div class="newspaper-bg">
+    <div class="newspaper-header">
+      <div class="newspaper-title">AI 魔法日報</div>
+      <div class="newspaper-date">2026年 · AAMA 特刊</div>
+      <div class="newspaper-rule"></div>
+    </div>
+    <div class="newspaper-content" id="newspaper-content">
+      <div class="newspaper-headline">非技術人員也能駕馭 AI 的時代已經到來</div>
+      <div class="newspaper-columns" id="newspaper-columns">
+        <div class="newspaper-col" id="np-col-1">
+          <p id="np-text-1">在這個瞬息萬變的世界裡，人工智慧已不再是科技公司的專屬魔法。每一位行銷人員、每一位業務、每一位不會寫程式的普通人，都可以用 AI 工具重新定義自己的工作方式。今日本報特別報導，如何在不懂技術的情況下，讓 AI 成為你最強大的工作夥伴。</p>
+          <p>據本報獨家消息，Zeabur 公司已強制要求所有員工每月使用 200 美元的 AI 工具預算，並見證了生產力的大幅提升。「這不是選擇，而是生存之道，」一位不願透露姓名的內部人士表示。</p>
+        </div>
+        <div class="newspaper-col" id="np-col-2">
+          <p id="np-text-2">與此同時，本報記者深入調查發現，越來越多非技術背景的工作者，正在用 AI 完成過去需要工程師才能做到的事。一位公關公司的行銷總監，在沒有任何工程師支援的情況下，獨立建立了完整的客戶管理系統。「我只是告訴 AI 我想要什麼，它就幫我做出來了，」她說。</p>
+          <p>知識基礎設施的建立，更是企業 AI 化的關鍵一步。不讓寶貴的經驗只存在某個人的腦海中，而是讓整個組織都能受益，這才是真正的智慧企業。</p>
+        </div>
+        <div class="newspaper-col" id="np-col-3">
+          <p id="np-text-3">移動你的游標，感受文字的力量——這正是 AI 時代的隱喻：工具會為你讓路，讓你的想法自由流動。本報提醒讀者，AI 的價值不在於它有多聰明，而在於你懂不懂得善加利用。從今天開始，把每天重複做的兩小時工作交給 AI，你的時間，值得更好的事。</p>
+          <p>下期預告：我們將深入報導更多來自各行各業的 AI 實戰案例，敬請期待。</p>
+        </div>
+      </div>
+    </div>
+    <div class="newspaper-cursor-hint">移動游標，讓文字繞道而行 ✦</div>
+  </div>
+</div>
+
+<!-- Slide 11: Q&A / 結語 -->
+<div class="slide" id="slide-11">
+  <div class="slide-content">
+    <h2>總結</h2>
+    <div class="slide-body">
+      <div class="summary-steps">
+        <div class="summary-item">
+          <span class="summary-num">01</span>
+          <span class="summary-text">把重複的日常工作交給 AI</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-num">02</span>
+          <span class="summary-text">非技術人員也能用 AI 做出工具</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-num">03</span>
+          <span class="summary-text">建立會自動進化的知識庫</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-num">04</span>
+          <span class="summary-text">從一個真實問題開始動手</span>
+        </div>
+      </div>
+      <div class="callout center">
+        <p>AI 不會取代你。</p>
+        <p><strong>但會用 AI 的人，會。</strong></p>
+      </div>
+      <p class="qa-hint">Q &amp; A</p>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<span class="slide-counter" id="slide-counter">1 / 11</span>
+<!-- Click zones for prev/next -->
+<div class="click-zone left" id="click-prev"></div>
+<div class="click-zone right" id="click-next"></div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
