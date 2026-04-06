@@ -5,271 +5,814 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>非軟體工程師的 AI 世代指南</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
 <!-- Slide 1: 封面 -->
 <div class="slide active" id="slide-1">
-  <canvas id="fluid-canvas"></canvas>
+  <div id="fluid-art"></div>
   <div class="slide-content cover-content">
     <h1 class="cover-title">非軟體工程師的<br>AI 世代指南</h1>
-    <p class="cover-sub">AAMA 內部分享會 · 2026</p>
+    <p class="cover-sub">增站內部分享會 2026</p>
     <p class="cover-hint">按 → 開始</p>
   </div>
 </div>
 
-<!-- Slide 2: 你真的有必要使用 AI 工具嗎？ -->
-<div class="slide" id="slide-2">
+<!-- Slide: 你真的有必要使用 AI 嗎？ -->
+<div class="slide" id="slide-intro-hype">
+  <div class="hype-bg" id="hype-bg"></div>
+  <div class="slide-content hype-content">
+    <h2 class="hype-title">你真的有必要使用 AI 嗎？</h2>
+  </div>
+</div>
+
+<!-- Slide: 名詞解釋 -->
+<div class="slide" id="slide-glossary">
   <div class="slide-content">
-    <h2 class="slide-question">你真的有必要<br>使用 AI 工具嗎？</h2>
+    <h2>名詞解釋</h2>
     <div class="slide-body">
-      <p class="big-text">市面上九成的 AI 課程在賣什麼？</p>
-      <ul class="point-list">
-        <li>「再不學 AI 你就落伍了！」</li>
-        <li>「AI 要取代你的工作了！」</li>
-        <li>教你開 ChatGPT、問它今天吃什麼</li>
+      <div class="glossary-grid">
+        <div class="glossary-card">
+          <h3>AI</h3>
+          <img src="assets/mickey-tool.png" alt="AI — 這是等一下會用到的神奇妙妙工具" />
+        </div>
+        <div class="glossary-card">
+          <h3>API &amp; MCP</h3>
+          <img src="assets/minecraft-islands.png" alt="API & MCP — Minecraft 浮島" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: AI 的進化 -->
+<div class="slide" id="slide-intro-evolution">
+  <div class="slide-content">
+    <h2>AI Engineering 的進化</h2>
+    <div class="slide-body">
+      <div class="timeline-grid timeline-grid-4">
+        <div class="timeline-card">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-era">Prompt Engineering</div>
+          <div class="timeline-desc">
+            <p>把話說對</p>
+            <p>怎麼一次說到位</p>
+            <p class="timeline-note">ChatGPT、Midjourney</p>
+          </div>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-era">Context Engineering</div>
+          <div class="timeline-desc">
+            <p>把資訊給對</p>
+            <p>RAG、記憶、工具定義</p>
+            <p class="timeline-note">GPT-4o、Claude 3.5</p>
+          </div>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-era">Agent 時代</div>
+          <div class="timeline-desc">
+            <p>AI 自主拆解任務</p>
+            <p>你說目標，它想方法</p>
+            <p class="timeline-note">Claude Code、Cursor</p>
+          </div>
+        </div>
+        <div class="timeline-card highlight-card">
+          <div class="timeline-year">Now</div>
+          <div class="timeline-era">Harness Engineering</div>
+          <div class="timeline-desc">
+            <p>建系統讓 AI 跑</p>
+            <p>流程、容錯、多 Agent 協作</p>
+            <p class="timeline-note">CLAUDE.md、MCP、Skills</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout center">我們正在從「詢問者」過渡到「<strong>系統設計者</strong>」</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: Harness -->
+<div class="slide" id="slide-harness">
+  <div class="slide-content">
+    <h2 class="harness-title">Harness</h2>
+    <div class="harness-img-wrap">
+      <img src="assets/harness.jpg" alt="Harness" class="harness-img" />
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 三層結構 -->
+<div class="slide" id="slide-layers">
+  <div class="slide-content">
+    <h2>三層不是取代，而是範圍更廣</h2>
+    <div class="slide-body">
+      <div class="layers-diagram">
+        <div class="layer-ring layer-harness">
+          <div class="layer-label layer-label-harness">
+            <span class="layer-name">Harness</span>
+            <span class="layer-desc">orchestration · workflows · error handling · multi-agent</span>
+          </div>
+          <div class="layer-ring layer-context">
+            <div class="layer-label layer-label-context">
+              <span class="layer-name">Context</span>
+              <span class="layer-desc">memory · tools · RAG · examples · history</span>
+            </div>
+            <div class="layer-ring layer-prompt">
+              <div class="layer-label layer-label-prompt">
+                <span class="layer-name">Prompt</span>
+                <span class="layer-desc">instructions · format · persona</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="callout center">每一層都讓 AI 更能做到你要的事</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: Claude Code 是什麼？ -->
+<div class="slide" id="slide-core">
+  <div class="slide-content">
+    <h2>Agentic AI</h2>
+    <div class="slide-body">
+      <div class="core-def-block">
+        <p class="core-def-line"><span class="core-label">定義：</span>具備「自主性」的 AI 系統。它不再只是等你問、它答，而是會根據目標「自我拆解步驟」。</p>
+        <p class="core-def-line"><span class="core-label">思維轉變：</span>從「給我一個答案」變成「幫我達成一個目標」。</p>
+        <p class="core-def-line"><span class="core-label">關鍵能力：</span>推理 (Reasoning) + 規劃 (Planning) + 自我修正 (Self-Correction)。</p>
+      </div>
+      <div class="agent-flow">
+        <div class="agent-flow-item">
+          <div class="agent-flow-label">通訊軟體</div>
+          <div class="agent-flow-box">
+            <p>Discord</p>
+            <p>Line</p>
+            <p>Telegram</p>
+          </div>
+        </div>
+        <div class="agent-flow-arrow">→</div>
+        <div class="agent-flow-item">
+          <div class="agent-flow-label">Agentic AI</div>
+          <div class="agent-flow-box agent-flow-highlight">
+            <p>龍蝦</p>
+            <p>Claude Code</p>
+          </div>
+        </div>
+        <div class="agent-flow-arrow">→</div>
+        <div class="agent-flow-item">
+          <div class="agent-flow-label">模型</div>
+          <div class="agent-flow-box">
+            <p>Claude</p>
+            <p>Gemini</p>
+            <p>GPT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 創意性 -->
+<div class="slide" id="slide-creativity">
+  <div class="slide-content">
+    <h2>創意性</h2>
+    <div class="creativity-grid">
+      <div class="creativity-item">
+        <img src="assets/magic1.png" alt="魔法是想像的世界" />
+      </div>
+      <div class="creativity-item">
+        <img src="assets/magic2.png" alt="無法想像的事物就無法實現" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 那為什麼「不要用」？（過渡） -->
+<div class="slide" id="slide-risk">
+  <div class="slide-content risk-transition">
+    <p class="risk-line1">只要想像的出來就能實現</p>
+    <p class="risk-line2">那為什麼「不要用」？</p>
+  </div>
+</div>
+
+<!-- Slide: 成本 -->
+<div class="slide" id="slide-cost">
+  <div class="slide-content">
+    <h2>成本</h2>
+    <div class="slide-body">
+      <div class="cost-layout">
+        <div class="cost-meme">
+          <img src="assets/skeleton.gif" alt="你的 TOKEN 跟時間" />
+        </div>
+        <div class="cost-cards">
+          <div class="cost-card">
+            <div class="cost-title">Token</div>
+            <div class="cost-desc">Agent 每思考一步都要燒錢。複雜任務可能反覆思考 20 次，成本是單次對話的數十倍。</div>
+          </div>
+          <div class="cost-card">
+            <div class="cost-title">時間</div>
+            <div class="cost-desc">自主思考與工具調用需要時間，Agent 通常比直覺回答慢得多。無法清楚明確表達步驟的需求可能讓 Agent 一直像弱智一樣鬼打牆。</div>
+          </div>
+          <div class="cost-card">
+            <div class="cost-title">風險</div>
+            <div class="cost-desc">資料不小心外流或原本 vibe 出來的工具不小心一次遺失過去所有儲存的客戶資料，得不償失。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 企業/個人導入 AI 的角度 -->
+<div class="slide" id="slide-overview">
+  <div class="slide-content">
+    <h2>企業／個人該以什麼角度導入 AI</h2>
+    <div class="slide-body">
+      <div class="overview-grid">
+        <div class="overview-card">
+          <div class="overview-title">個人日常工作流程</div>
+          <ul class="overview-list">
+            <li>自動把 YouTube 數據導入 Excel</li>
+            <li>個人數據儀表板</li>
+            <li class="overview-highlight">用 Claude Code 做簡報</li>
+          </ul>
+        </div>
+        <div class="overview-card">
+          <div class="overview-title">團隊常見共用流程</div>
+          <ul class="overview-list">
+            <li>共同使用一個簡報模板</li>
+            <li>團隊內成員只需要提供簡報架構或內容</li>
+          </ul>
+        </div>
+        <div class="overview-card">
+          <div class="overview-title">公司知識庫</div>
+          <div class="overview-desc">以 Zeabur 的斑馬手冊為例</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 為什麼用 Claude Code 做簡報？ -->
+<div class="slide" id="slide-daily-why">
+  <div class="slide-content">
+    <div class="step-badge">個人日常</div>
+    <h2>為什麼用 Claude Code 做簡報？</h2>
+    <div class="slide-body">
+      <div class="big-quote">"做簡報本質上是 dump 大腦的過程"</div>
+      <ul class="point-list why-list">
+        <li>對話是最自然的 dump 方式</li>
+        <li>不需要先想排版、配色、動畫</li>
+        <li>初期不應以「好不好看」為標準</li>
+        <li>內容才是價值，形式是後來的事</li>
       </ul>
       <div class="callout">
-        <p>我沒有收你們的錢。</p>
-        <p>所以我不需要嚇你。</p>
-        <p>今天只有一件事：<strong>AI 怎麼真的幫到你。</strong></p>
+        你說想法，Claude 整理結構。<br>
+        <strong>內容跟形式可以同時完成。</strong>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Slide 3: 什麼是 Agentic AI -->
-<div class="slide" id="slide-3">
+<!-- Slide: Claude Code vs 其他工具 -->
+<div class="slide" id="slide-daily-compare">
   <div class="slide-content">
-    <h2>什麼是 Agentic AI？</h2>
+    <div class="step-badge">個人日常</div>
+    <h2>Claude Code vs 其他工具</h2>
     <div class="slide-body">
-      <p class="big-text">AI 從「回答問題」進化到「自己做事」</p>
-      <div class="compare-grid">
-        <div class="compare-box old">
-          <div class="compare-label">過去的 AI</div>
-          <p>你問 → 它答</p>
-          <p>每一步都要你決定</p>
-          <p>像查 Google</p>
+      <div class="plan-context-grid">
+        <div class="plan-context-card contrast-old">
+          <div class="contrast-title">Gamma 等 AI 簡報工具</div>
+          <ul class="contrast-list">
+            <li>✗ 版型固定，難以客製</li>
+            <li>✗ 你要配合工具的邏輯</li>
+            <li>✗ 超出範本就沒辦法</li>
+            <li>✗ 輸出格式受限</li>
+            <li>✗ 品牌風格難以統一</li>
+          </ul>
         </div>
-        <div class="compare-arrow">→</div>
-        <div class="compare-box new">
-          <div class="compare-label">Agentic AI</div>
-          <p>你說目標 → 它自己規劃執行</p>
-          <p>像給你一個能自主工作的助理</p>
-          <p>不只回答，還會動手做</p>
+        <div class="plan-context-card contrast-new">
+          <div class="contrast-title">Claude Code</div>
+          <ul class="contrast-list">
+            <li>✓ 完全自訂版型與風格</li>
+            <li>✓ 工具配合你的邏輯</li>
+            <li><span class="try-it-btn" id="try-it-btn">✓ 任何需求都可以嘗試 <span class="try-it-label">點我</span></span></li>
+            <li>✓ 輸出到任何格式</li>
+            <li>✓ 做一次，之後重複使用</li>
+          </ul>
         </div>
-      </div>
-      <p class="note">Claude Code、Cursor、Copilot 本質上都是 Agentic AI</p>
-    </div>
-  </div>
-</div>
-
-<!-- Slide 4: 四步切入架構 -->
-<div class="slide" id="slide-5">
-  <div class="slide-content">
-    <h2>企業導入 AI 的四個切入點</h2>
-    <div class="four-steps">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <div class="step-title">日常工作 AI 化</div>
-        <div class="step-desc">用 AI 做你每天都在做的事</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <div class="step-title">賦能非技術人員</div>
-        <div class="step-desc">不需工程師，自己做工具</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <div class="step-title">知識基礎設施</div>
-        <div class="step-desc">讓知識不再鎖在人腦裡</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">04</div>
-        <div class="step-title">實戰案例</div>
-        <div class="step-desc">行銷人員的 YouTube 數據自動化</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Slide 6: Step 1 日常 AI 化 -->
-<div class="slide" id="slide-6">
+<!-- Slide: 把簡報模板做成 Skill -->
+<div class="slide" id="slide-step1">
   <div class="slide-content">
-    <div class="step-badge">Step 01</div>
-    <h2>日常工作 AI 化</h2>
+    <div class="step-badge">Step 01 · 企業價值</div>
+    <h2>把簡報模板做成 Skill</h2>
     <div class="slide-body">
-      <p class="big-text">最快的起點：把你每天重複做的事交給 AI</p>
-      <div class="example-row">
-        <div class="example-card">
-          <div class="example-icon">📊</div>
-          <div class="example-title">這個簡報</div>
-          <div class="example-desc">用 Claude Code 直接生成互動網頁簡報，不用 PowerPoint，不用 Gamma</div>
+      <p class="big-text">做一次，讓整個團隊都能用</p>
+      <div class="step1-flow">
+        <div class="step1-item">
+          <div class="step1-num">01</div>
+          <div class="step1-text">設計一套品牌風格的簡報版型（HTML）</div>
         </div>
-        <div class="example-card">
-          <div class="example-icon">📱</div>
-          <div class="example-title">社群貼文素材</div>
-          <div class="example-desc">比 AI 生圖更快、更準，成本更低</div>
+        <div class="step1-arr">→</div>
+        <div class="step1-item">
+          <div class="step1-num">02</div>
+          <div class="step1-text">把版型封裝成 /slide Skill</div>
         </div>
-        <div class="example-card">
-          <div class="example-icon">🔁</div>
-          <div class="example-title">重複性文書</div>
-          <div class="example-desc">報告、會議記錄、Email 草稿，讓 AI 先跑一版</div>
-        </div>
-      </div>
-      <p class="note">原則：先找出你每週花超過 2 小時的重複任務</p>
-    </div>
-  </div>
-</div>
-
-<!-- Slide 7: Step 2 賦能非技術人員 -->
-<div class="slide" id="slide-7">
-  <div class="slide-content">
-    <div class="step-badge">Step 02</div>
-    <h2>賦能非技術人員</h2>
-    <div class="slide-body">
-      <p class="big-text">你不需要工程師，也能做出工具</p>
-      <div class="case-list">
-        <div class="case-item">
-          <div class="case-role">PM</div>
-          <div class="case-detail">獨立完成數據可視化 Admin Dashboard，不需工程師介入</div>
-        </div>
-        <div class="case-item">
-          <div class="case-role">PM</div>
-          <div class="case-detail">開發 Discord Bot，自動整理營收總結和專案進度</div>
-        </div>
-        <div class="case-item">
-          <div class="case-role">公關公司</div>
-          <div class="case-detail">無工程師團隊，自建完整 CRM 和專案管理系統</div>
-        </div>
-        <div class="case-item">
-          <div class="case-role">製造業</div>
-          <div class="case-detail">建立涵蓋學習、知識、施工、CRM、報價的一站式管理平台</div>
+        <div class="step1-arr">→</div>
+        <div class="step1-item">
+          <div class="step1-num">03</div>
+          <div class="step1-text">任何人輸入內容，Claude 自動套版</div>
         </div>
       </div>
-      <div class="callout">
-        解放被工程資源卡住的生產力——這是 AI 導入最大的槓桿。
+      <div class="callout center">
+        團隊做一次 Skill，<strong>所有人一起受益</strong>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Slide 8: Step 3 知識基礎設施 -->
-<div class="slide" id="slide-8">
+<!-- Slide: 什麼是 Skills？ -->
+<div class="slide" id="slide-skills">
   <div class="slide-content">
-    <div class="step-badge">Step 03</div>
+    <h2>什麼是 Skills</h2>
+    <div class="skills-visual">
+      <img src="assets/nespresso.jpg" alt="Nespresso 咖啡機" class="skills-img" />
+      <div class="skills-arrow skills-arrow-left"></div>
+      <div class="skills-arrow skills-arrow-right"></div>
+      <span class="skills-label skills-label-left">Skill</span>
+      <span class="skills-label skills-label-right">你的需求</span>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 建立 AI 知識基礎設施 -->
+<div class="slide" id="slide-kb">
+  <div class="slide-content">
+    <div class="step-badge">Step 02 · 知識庫</div>
     <h2>建立 AI 知識基礎設施</h2>
     <div class="slide-body">
-      <p class="big-text">知識不應該只活在某個人的腦子裡</p>
-      <div class="flow-diagram">
-        <div class="flow-step">遇到問題</div>
+      <p class="big-text">讓知識不只活在某個人腦子裡</p>
+      <div class="kb-intro">案例：Zeabur 斑馬手冊</div>
+      <div class="flow-row">
+        <div class="flow-step">
+          <div class="flow-step-icon">❓</div>
+          <div class="flow-step-label">問題出現</div>
+          <div class="flow-step-sub">客服 / 業務 / 新人</div>
+        </div>
         <div class="flow-arrow">→</div>
-        <div class="flow-step">AI 查知識庫</div>
+        <div class="flow-step">
+          <div class="flow-step-icon">🔍</div>
+          <div class="flow-step-label">Claude 查詢</div>
+          <div class="flow-step-sub">搜尋知識庫文件</div>
+        </div>
         <div class="flow-arrow">→</div>
-        <div class="flow-step">有記錄 → 直接回覆<br>沒記錄 → 人處理後<strong>寫回手冊</strong></div>
+        <div class="flow-step">
+          <div class="flow-step-icon">💬</div>
+          <div class="flow-step-label">即時回覆</div>
+          <div class="flow-step-sub">給出標準答案</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-step-icon">📝</div>
+          <div class="flow-step-label">自動學習</div>
+          <div class="flow-step-sub">把新知識寫回文件</div>
+        </div>
       </div>
-      <div class="health-grid">
-        <div class="health-item">
-          <div class="health-pct">20%</div>
-          <div class="health-label">覆蓋率</div>
-        </div>
-        <div class="health-item">
-          <div class="health-pct">30%</div>
-          <div class="health-label">新鮮度</div>
-        </div>
-        <div class="health-item">
-          <div class="health-pct">25%</div>
-          <div class="health-label">結構品質</div>
-        </div>
-        <div class="health-item">
-          <div class="health-pct">25%</div>
-          <div class="health-label">連結完整性</div>
-        </div>
+      <div class="callout center">
+        不需要工程師。<strong>非技術人員也能建出來。</strong>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Slide 9: Step 4 實戰 -->
-<div class="slide" id="slide-9">
+<!-- Slide: 知識庫靠人維護不夠 -->
+<div class="slide" id="slide-kb-problems">
   <div class="slide-content">
-    <div class="step-badge">Step 04 · 實戰</div>
-    <h2>YouTube 數據自動化儀表板</h2>
+    <div class="step-badge">Step 02 · 知識庫</div>
+    <h2>知識庫靠人維護不夠</h2>
     <div class="slide-body">
-      <div class="demo-layout">
-        <div class="demo-problem">
-          <div class="demo-label problem">❌ 問題</div>
-          <p>行銷人員每天手動登入 YouTube Studio，複製數據到 Excel，耗時又容易出錯</p>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">📤</div>
+          <div class="problem-title">知識靠人推</div>
+          <div class="problem-desc">有人記得才更新，沒人記得就遺忘。知識流失跟人員流失一起發生。</div>
         </div>
-        <div class="demo-solution">
-          <div class="demo-label solution">✅ 解決</div>
-          <p>用 Claude Code 建出自動化工具，一鍵抓取 YouTube 數據，自動更新 Excel，並產生可視化儀表板</p>
+        <div class="problem-card">
+          <div class="problem-icon">📅</div>
+          <div class="problem-title">過期靠運氣</div>
+          <div class="problem-desc">沒人知道哪份文件是最新的。舊資訊繼續被引用，錯誤繼續擴散。</div>
         </div>
-        <div class="demo-result">
-          <div class="demo-label result">🚀 成果</div>
-          <p>從每天 30 分鐘手動作業，變成一鍵完成。數據即時、準確、可分享。</p>
+        <div class="problem-card">
+          <div class="problem-icon">🔎</div>
+          <div class="problem-title">查找靠搜尋</div>
+          <div class="problem-desc">關鍵字沒猜對就找不到。查找超過兩跳，大家就直接問人。</div>
         </div>
       </div>
-      <p class="note">Demo 截圖 / 實作過程 — 待補充</p>
+      <div class="callout center goal-callout">
+        目標：<strong>讓知識庫自己跑自主循環</strong>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Slide 10: 哈利波特報紙互動頁 -->
-<div class="slide" id="slide-10">
-  <div class="newspaper-bg">
-    <div class="newspaper-header">
-      <div class="newspaper-title">AI 魔法日報</div>
-      <div class="newspaper-date">2026年 · AAMA 特刊</div>
-      <div class="newspaper-rule"></div>
-    </div>
-    <div class="newspaper-content" id="newspaper-content">
-      <div class="newspaper-headline">非技術人員也能駕馭 AI 的時代已經到來</div>
-      <div class="newspaper-columns" id="newspaper-columns">
-        <div class="newspaper-col" id="np-col-1">
-          <p id="np-text-1">在這個瞬息萬變的世界裡，人工智慧已不再是科技公司的專屬魔法。每一位行銷人員、每一位業務、每一位不會寫程式的普通人，都可以用 AI 工具重新定義自己的工作方式。今日本報特別報導，如何在不懂技術的情況下，讓 AI 成為你最強大的工作夥伴。</p>
-          <p>據本報獨家消息，Zeabur 公司已強制要求所有員工每月使用 200 美元的 AI 工具預算，並見證了生產力的大幅提升。「這不是選擇，而是生存之道，」一位不願透露姓名的內部人士表示。</p>
-        </div>
-        <div class="newspaper-col" id="np-col-2">
-          <p id="np-text-2">與此同時，本報記者深入調查發現，越來越多非技術背景的工作者，正在用 AI 完成過去需要工程師才能做到的事。一位公關公司的行銷總監，在沒有任何工程師支援的情況下，獨立建立了完整的客戶管理系統。「我只是告訴 AI 我想要什麼，它就幫我做出來了，」她說。</p>
-          <p>知識基礎設施的建立，更是企業 AI 化的關鍵一步。不讓寶貴的經驗只存在某個人的腦海中，而是讓整個組織都能受益，這才是真正的智慧企業。</p>
-        </div>
-        <div class="newspaper-col" id="np-col-3">
-          <p id="np-text-3">移動你的游標，感受文字的力量——這正是 AI 時代的隱喻：工具會為你讓路，讓你的想法自由流動。本報提醒讀者，AI 的價值不在於它有多聰明，而在於你懂不懂得善加利用。從今天開始，把每天重複做的兩小時工作交給 AI，你的時間，值得更好的事。</p>
-          <p>下期預告：我們將深入報導更多來自各行各業的 AI 實戰案例，敬請期待。</p>
-        </div>
-      </div>
-    </div>
-    <div class="newspaper-cursor-hint">移動游標，讓文字繞道而行 ✦</div>
-  </div>
-</div>
-
-<!-- Slide 11: Q&A / 結語 -->
-<div class="slide" id="slide-11">
+<!-- Slide: 兩個靈感來源 -->
+<div class="slide" id="slide-kb-inspiration">
   <div class="slide-content">
-    <h2>總結</h2>
+    <div class="step-badge">Step 02 · 知識庫</div>
+    <h2>兩個靈感來源</h2>
+    <div class="slide-body">
+      <div class="plan-context-grid">
+        <div class="plan-context-card">
+          <div class="insp-title">Karpathy autoresearch</div>
+          <div class="insp-sub">2025 · 21k stars on GitHub</div>
+          <ul class="insp-list">
+            <li><code>program.md</code> — 你寫研究方向</li>
+            <li><code>prepare.py</code> — 固定的評估基建</li>
+            <li><code>train.py</code> — AI 自己修改實驗</li>
+          </ul>
+          <div class="insp-loop">AI 跑 5 分鐘 → 比較分數 → git commit 或 reset</div>
+          <div class="insp-key">人控制 meta，AI 執行 micro</div>
+        </div>
+        <div class="plan-context-card">
+          <div class="insp-title">Index 原則</div>
+          <div class="insp-sub">讓查找一跳到位</div>
+          <div class="insp-quote">"每次查找超過一跳，就問自己：Index 裡少寫了什麼？"</div>
+          <ul class="insp-list">
+            <li>✓ 記模式，不記事件</li>
+            <li>✓ AI 自己負責優化 Index</li>
+            <li>✓ Index 是路由表，成本極低</li>
+          </ul>
+          <div class="insp-key">不是靜態文件，是動態路由</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 三個世界的對應 -->
+<div class="slide" id="slide-kb-mapping">
+  <div class="slide-content">
+    <div class="step-badge">Step 02 · 知識庫</div>
+    <h2>概念底層邏輯</h2>
+    <div class="slide-body">
+      <div class="mapping-table">
+        <div class="mapping-header">
+          <div class="mapping-cell role-col">角色</div>
+          <div class="mapping-cell">autoresearch</div>
+          <div class="mapping-cell">斑馬手冊</div>
+        </div>
+        <div class="mapping-row">
+          <div class="mapping-cell role-col">人控制方向</div>
+          <div class="mapping-cell"><code>program.md</code></div>
+          <div class="mapping-cell"><code>evolution/program.md</code></div>
+        </div>
+        <div class="mapping-row">
+          <div class="mapping-cell role-col">評估基建</div>
+          <div class="mapping-cell"><code>prepare.py</code></div>
+          <div class="mapping-cell"><code>scripts/evaluate.sh</code></div>
+        </div>
+        <div class="mapping-row">
+          <div class="mapping-cell role-col">AI 修改對象</div>
+          <div class="mapping-cell"><code>train.py</code></div>
+          <div class="mapping-cell"><code>docs/**/*.md</code></div>
+        </div>
+        <div class="mapping-row highlight-row">
+          <div class="mapping-cell role-col">路徑捷徑</div>
+          <div class="mapping-cell muted-cell">—</div>
+          <div class="mapping-cell"><code>evolution/INDEX.md</code></div>
+        </div>
+      </div>
+      <div class="callout center">
+        同樣的架構，不同的應用領域。<strong>概念是可以移植的。</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 自我進化循環 -->
+<div class="slide" id="slide-kb-loop">
+  <div class="slide-content">
+    <div class="step-badge">Step 02 · 知識庫</div>
+    <h2>自我進化循環</h2>
+    <div class="slide-body">
+      <div class="loop-diagram">
+        <div class="loop-trigger">
+          <div class="loop-actor">人（團隊）</div>
+          <div class="loop-action">編輯 program.md<br><span class="loop-sub">定義方向與評估標準</span></div>
+        </div>
+        <div class="loop-arr-right">→</div>
+        <div class="loop-ai-block">
+          <div class="loop-ai-title">AI 每週執行</div>
+          <div class="loop-ai-steps">
+            <span>查詢知識庫</span>
+            <span>→</span>
+            <span>提出更新</span>
+            <span>→</span>
+            <span>跑評估腳本</span>
+            <span>→</span>
+            <span>比較分數</span>
+          </div>
+        </div>
+        <div class="loop-arr-right">→</div>
+        <div class="loop-result-split">
+          <div class="loop-result pass">
+            <div class="loop-result-icon">✓</div>
+            <div>進步 → Merge</div>
+          </div>
+          <div class="loop-result fail">
+            <div class="loop-result-icon">✗</div>
+            <div>退步 → Close</div>
+          </div>
+        </div>
+      </div>
+      <div class="loop-note">
+        同時：Claude 自動更新 INDEX.md，讓下一次查找更快
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 建立迭代閉環 -->
+<div class="slide" id="slide-iterate">
+  <div class="slide-content">
+    <div class="step-badge">Step 02 · 知識庫</div>
+    <h2>建立迭代閉環</h2>
+    <div class="slide-body">
+      <p class="big-text">讓系統自己變好</p>
+      <div class="iterate-flow">
+        <div class="loop-node meta">
+          <div class="loop-node-num">01</div>
+          <div class="loop-node-title">測試</div>
+          <div class="loop-node-desc">真實提問，觀察 AI 的回答品質</div>
+        </div>
+        <div class="loop-arr">→</div>
+        <div class="loop-node ai">
+          <div class="loop-node-num">02</div>
+          <div class="loop-node-title">觀察路徑</div>
+          <div class="loop-node-desc">哪裡查不到？哪裡答錯了？</div>
+        </div>
+        <div class="loop-arr">→</div>
+        <div class="loop-node ai">
+          <div class="loop-node-num">03</div>
+          <div class="loop-node-title">引導反省</div>
+          <div class="loop-node-desc">讓 Claude 自己分析失敗原因</div>
+        </div>
+        <div class="loop-arr">→</div>
+        <div class="loop-node result">
+          <div class="loop-node-num">04</div>
+          <div class="loop-node-title">自動修正</div>
+          <div class="loop-node-desc">更新文件，提交 PR，等待審核</div>
+        </div>
+      </div>
+      <div class="iterate-return">↩ 回到步驟 01</div>
+      <div class="callout center">目標：完成得又快又省</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: Agents 的武裝實作 -->
+<div class="slide" id="slide-agents">
+  <div class="slide-content">
+    <div class="step-badge">進階解析</div>
+    <h2>Agents 的武裝實作</h2>
+    <div class="slide-body">
+      <div class="tool-grid agents-grid">
+        <div class="tool-card agent-card-a">
+          <div class="tool-name">Agent</div>
+          <div class="tool-file">士兵卡</div>
+          <div class="tool-desc">被派出去執行獨立任務的 AI 子代理。可以並行、可以背景執行，不需要你盯著。</div>
+        </div>
+        <div class="tool-card agent-card-b">
+          <div class="tool-name">Skills</div>
+          <div class="tool-file">裝備</div>
+          <div class="tool-desc">封裝好的能力模組。Agent 可以呼叫 Skills 完成特定動作，像士兵帶著不同武器。</div>
+        </div>
+        <div class="tool-card agent-card-c">
+          <div class="tool-name">Claude Rules</div>
+          <div class="tool-file">戰場守則</div>
+          <div class="tool-desc">CLAUDE.md 裡定義的規則。每次對話自動生效，不需要重複說明，像作戰手冊。</div>
+        </div>
+        <div class="tool-card agent-card-d">
+          <div class="tool-name">Hooks</div>
+          <div class="tool-file">觸發卡</div>
+          <div class="tool-desc">事件發生時自動觸發的行為。存檔後自動做某件事，你不需要記得叫它做。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 公司內部實際例子 - 標題 -->
+<div class="slide" id="slide-demo-intro">
+  <div class="slide-content">
+    <h2>公司內部實際例子 — 以行銷數據觀看率為例</h2>
+    <div class="slide-body">
+      <div class="demo-goal">
+        <span class="demo-goal-label">目標</span>
+        只要輸入某一部影片名稱，即可從 YouTube 後台獲得數據並自動匯入 Excel
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 公司內部實際例子 - Demo -->
+<div class="slide" id="slide-demo-result">
+  <div class="slide-content">
+    <h2>公司內部實際例子 — 以行銷數據觀看率為例</h2>
+    <div class="slide-body demo-screenshots">
+      <img src="assets/demo-terminal.png" alt="Claude Code 取得數據" class="demo-screenshot" />
+      <img src="assets/demo-sheets.png" alt="Google Sheets 匯入結果" class="demo-screenshot" />
+    </div>
+  </div>
+</div>
+
+<!-- Slide: 公司內部實際例子 - 架構圖 -->
+<div class="slide" id="slide-demo-arch">
+  <div class="slide-content">
+    <h2>公司內部實際例子 — 以行銷數據觀看率為例</h2>
+    <div class="slide-body">
+      <svg class="demo-arch-svg" viewBox="0 0 820 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9a9590"/>
+          </marker>
+          <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#FF4444"/>
+          </marker>
+          <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#34A853"/>
+          </marker>
+          <!-- Flow paths for animateMotion -->
+          <path id="flow-main" d="M80,210 L250,210 L430,210 L570,210"/>
+          <path id="flow-up" d="M570,210 L570,110 L680,110"/>
+          <path id="flow-down" d="M570,210 L570,310 L680,310"/>
+          <path id="flow-fb-top" d="M760,90 C760,30 250,30 250,190"/>
+          <path id="flow-fb-bot" d="M760,330 C760,395 250,395 250,230"/>
+        </defs>
+
+        <!-- ====== Step 1: 使用者 ====== -->
+        <g class="arch-step" data-step="1">
+          <rect x="20" y="190" width="120" height="42" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+          <text x="80" y="216" text-anchor="middle" fill="#f0ede8" font-size="14" font-weight="600">使用者</text>
+        </g>
+
+        <!-- Step 2: → 影片名稱 -->
+        <g class="arch-step" data-step="2">
+          <line x1="145" y1="211" x2="190" y2="211" stroke="#9a9590" stroke-width="1.2" marker-end="url(#arrow)"/>
+          <text x="167" y="203" text-anchor="middle" fill="#6a6560" font-size="9" font-style="italic">影片名稱</text>
+        </g>
+
+        <!-- ====== Step 3: Claude Code + Anthropic icon ====== -->
+        <g class="arch-step" data-step="3">
+          <rect x="195" y="190" width="130" height="42" rx="10" fill="rgba(124,108,252,0.12)" stroke="#7c6cfc" stroke-width="1.5"/>
+          <g transform="translate(212,203) scale(0.65)">
+            <path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z" fill="#7c6cfc"/>
+          </g>
+          <text x="275" y="216" text-anchor="middle" fill="#7c6cfc" font-size="13" font-weight="700">Claude Code</text>
+        </g>
+
+        <!-- Step 4: → auth -->
+        <g class="arch-step" data-step="4">
+          <line x1="330" y1="211" x2="370" y2="211" stroke="#9a9590" stroke-width="1.2" marker-end="url(#arrow)"/>
+          <text x="350" y="203" text-anchor="middle" fill="#6a6560" font-size="9" font-style="italic">auth</text>
+        </g>
+
+        <!-- ====== Step 5: Google OAuth ====== -->
+        <g class="arch-step" data-step="5">
+          <rect x="375" y="190" width="130" height="42" rx="10" fill="rgba(66,133,244,0.08)" stroke="rgba(66,133,244,0.4)" stroke-width="1.2"/>
+          <text x="440" y="216" text-anchor="middle" fill="#8ab4f8" font-size="13" font-weight="600">Google OAuth</text>
+        </g>
+
+        <!-- Step 6: → token -->
+        <g class="arch-step" data-step="6">
+          <line x1="510" y1="211" x2="535" y2="211" stroke="#9a9590" stroke-width="1.2" marker-end="url(#arrow)"/>
+          <text x="522" y="203" text-anchor="middle" fill="#6a6560" font-size="9" font-style="italic">token</text>
+        </g>
+
+        <!-- ====== Step 7: GCP Container ====== -->
+        <g class="arch-step" data-step="7">
+          <rect x="540" y="60" width="180" height="300" rx="14" fill="rgba(66,133,244,0.04)" stroke="rgba(66,133,244,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+          <g transform="translate(550,68) scale(0.55)">
+            <path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 0 0-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0 0 12.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 0 1 1.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 0 1-1.067-.23h.001a2.597 2.597 0 1 1 3.437-3.437l3.013-3.012A6.747 6.747 0 0 0 8.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 0 1 3.67-1.69z" fill="#4285F4"/>
+          </g>
+          <text x="580" y="80" fill="#8ab4f8" font-size="11" font-weight="600">GCP</text>
+        </g>
+
+        <!-- Step 7b: GCP 內部分叉線 -->
+        <g class="arch-step" data-step="7">
+          <!-- 入口點到上分支 -->
+          <line x1="548" y1="211" x2="548" y2="119" stroke="rgba(66,133,244,0.35)" stroke-width="1.2" marker-end="url(#arrow)"/>
+          <!-- 入口點到下分支 -->
+          <line x1="548" y1="211" x2="548" y2="299" stroke="rgba(66,133,244,0.35)" stroke-width="1.2" marker-end="url(#arrow)"/>
+        </g>
+
+        <!-- ====== Step 8: GCP內 YouTube Data API ====== -->
+        <g class="arch-step" data-step="8">
+          <rect x="560" y="100" width="145" height="38" rx="8" fill="rgba(255,0,0,0.06)" stroke="rgba(255,68,68,0.35)" stroke-width="1"/>
+          <g transform="translate(568,111) scale(0.6)">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FF4444"/>
+          </g>
+          <text x="648" y="124" text-anchor="middle" fill="#ff8888" font-size="11">YouTube Data API</text>
+        </g>
+
+        <!-- Step 8 arrow → -->
+        <g class="arch-step" data-step="8">
+          <line x1="710" y1="119" x2="735" y2="119" stroke="rgba(255,68,68,0.5)" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+        </g>
+
+        <!-- ====== Step 9: YouTube 頻道 ====== -->
+        <g class="arch-step" data-step="9">
+          <rect x="740" y="100" width="70" height="38" rx="8" fill="rgba(255,0,0,0.08)" stroke="rgba(255,68,68,0.4)" stroke-width="1.2"/>
+          <text x="775" y="116" text-anchor="middle" fill="#ff8888" font-size="10">YouTube</text>
+          <text x="775" y="130" text-anchor="middle" fill="#ff8888" font-size="10">頻道</text>
+        </g>
+
+        <!-- ====== Step 8b: GCP內 Google Sheets API ====== -->
+        <g class="arch-step" data-step="8">
+          <rect x="560" y="280" width="145" height="38" rx="8" fill="rgba(52,168,83,0.06)" stroke="rgba(52,168,83,0.35)" stroke-width="1"/>
+          <g transform="translate(568,291) scale(0.6)">
+            <path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z" fill="#34A853"/>
+          </g>
+          <text x="648" y="304" text-anchor="middle" fill="#6dc98a" font-size="11">Google Sheets API</text>
+        </g>
+
+        <!-- Step 8b arrow → -->
+        <g class="arch-step" data-step="8">
+          <line x1="710" y1="299" x2="735" y2="299" stroke="rgba(52,168,83,0.5)" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+          <text x="722" y="292" text-anchor="middle" fill="#6a6560" font-size="8" font-style="italic">寫入</text>
+        </g>
+
+        <!-- ====== Step 9b: Google Sheets ====== -->
+        <g class="arch-step" data-step="9">
+          <rect x="740" y="280" width="70" height="38" rx="8" fill="rgba(52,168,83,0.08)" stroke="rgba(52,168,83,0.4)" stroke-width="1.2"/>
+          <text x="775" y="296" text-anchor="middle" fill="#6dc98a" font-size="10">Google</text>
+          <text x="775" y="310" text-anchor="middle" fill="#6dc98a" font-size="10">Sheets</text>
+        </g>
+
+        <!-- ====== Step 10: 虛線回饋 ====== -->
+        <path class="arch-feedback-path" data-step="10" d="M 775,100 C 775,35 260,35 260,190" fill="none" stroke="rgba(255,68,68,0.3)" stroke-width="1" marker-end="url(#arrow-red)"/>
+        <text class="arch-step" data-step="10" x="480" y="28" text-anchor="middle" fill="rgba(255,68,68,0.5)" font-size="9" font-style="italic">觀看數據</text>
+
+        <path class="arch-feedback-path" data-step="10" d="M 775,318 C 775,390 260,390 260,232" fill="none" stroke="rgba(52,168,83,0.3)" stroke-width="1" marker-end="url(#arrow-green)"/>
+        <text class="arch-step" data-step="10" x="480" y="398" text-anchor="middle" fill="rgba(52,168,83,0.5)" font-size="9" font-style="italic">寫入確認</text>
+
+        <!-- ====== Step 11: 流動光點 ====== -->
+        <g class="arch-step" data-step="11">
+          <!-- 主流程光點 -->
+          <circle r="3" fill="#7c6cfc" opacity="0.9">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M80,211 L260,211 L440,211 L570,211"/>
+          </circle>
+          <!-- 上分支光點 -->
+          <circle r="3" fill="#FF4444" opacity="0.8">
+            <animateMotion dur="2.5s" repeatCount="indefinite" path="M570,211 L570,119 L775,119"/>
+          </circle>
+          <!-- 下分支光點 -->
+          <circle r="3" fill="#34A853" opacity="0.8">
+            <animateMotion dur="2.5s" repeatCount="indefinite" path="M570,211 L570,299 L775,299"/>
+          </circle>
+          <!-- 回饋光點 上 -->
+          <circle r="2.5" fill="#FF4444" opacity="0.6">
+            <animateMotion dur="4s" repeatCount="indefinite" path="M775,100 C775,35 260,35 260,190"/>
+          </circle>
+          <!-- 回饋光點 下 -->
+          <circle r="2.5" fill="#34A853" opacity="0.6">
+            <animateMotion dur="4s" repeatCount="indefinite" path="M775,318 C775,390 260,390 260,232"/>
+          </circle>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- Slide: Summary -->
+<div class="slide" id="slide-summary">
+  <div class="slide-content">
+    <h2>Summary</h2>
     <div class="slide-body">
       <div class="summary-steps">
         <div class="summary-item">
           <span class="summary-num">01</span>
-          <span class="summary-text">把重複的日常工作交給 AI</span>
+          <span class="summary-text">從日常工作開始<span class="summary-note">別為用 AI 而用 AI</span></span>
         </div>
         <div class="summary-item">
           <span class="summary-num">02</span>
-          <span class="summary-text">非技術人員也能用 AI 做出工具</span>
+          <span class="summary-text">整合多個工具，盡量在同一個工具內調度其他服務<span class="summary-note">例：用 Claude Code 呼叫 Google Calendar 處理待辦事項</span></span>
         </div>
         <div class="summary-item">
           <span class="summary-num">03</span>
-          <span class="summary-text">建立會自動進化的知識庫</span>
-        </div>
-        <div class="summary-item">
-          <span class="summary-num">04</span>
-          <span class="summary-text">從一個真實問題開始動手</span>
+          <span class="summary-text">建立知識基礎設施<span class="summary-note">讓組織的知識可以被查詢、被更新、被傳承</span></span>
         </div>
       </div>
       <div class="callout center">
-        <p>AI 不會取代你。</p>
-        <p><strong>但會用 AI 的人，會。</strong></p>
+        如果使用 AI 不會讓你變輕鬆，那不如不做
       </div>
       <p class="qa-hint">Q &amp; A</p>
     </div>
@@ -277,7 +820,7 @@
 </div>
 
 <!-- Navigation -->
-<span class="slide-counter" id="slide-counter">1 / 11</span>
+<span class="slide-counter" id="slide-counter">1 / 18</span>
 <!-- Click zones for prev/next -->
 <div class="click-zone left" id="click-prev"></div>
 <div class="click-zone right" id="click-next"></div>
